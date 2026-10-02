@@ -23,5 +23,5 @@ export const image = (query: string): ImageMetadata => {
 
 /** Header nav labels (reference order) mapped to on-page anchors. */
 export const navAnchors = ['#produtos', '#topo', '#rodape'];
-/** Footer labels (reference order); policy/info pages are not built yet ([TODO]). */
+/** Footer labels (reference order); policy/info pages are not built yet. */
 export const footerAnchors = ['#rodape', '#', '#', '#', '#', '#'];

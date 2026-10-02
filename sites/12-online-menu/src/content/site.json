@@ -20,12 +20,12 @@
     {
       "id": "products",
       "items": [
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Prato executivo", "unsplashQuery": "plated meal" }, "hoverImage": { "alt": "Detalhe do prato executivo", "unsplashQuery": "plated meal close up" } },
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Porção de petiscos", "unsplashQuery": "appetizers platter" }, "hoverImage": { "alt": "Petiscos de perto", "unsplashQuery": "appetizer close up" } },
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Salada fresca", "unsplashQuery": "fresh salad bowl" }, "hoverImage": { "alt": "Salada vista de cima", "unsplashQuery": "salad top view" } },
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Suco natural", "unsplashQuery": "fresh juice glass" }, "hoverImage": { "alt": "Sucos variados", "unsplashQuery": "juices variety" } },
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Sobremesa", "unsplashQuery": "dessert cake slice" }, "hoverImage": { "alt": "Sobremesa de perto", "unsplashQuery": "dessert close up" } },
-        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Café expresso", "unsplashQuery": "espresso cup" }, "hoverImage": { "alt": "Café com doce", "unsplashQuery": "coffee and pastry" } }
+        { "title": "Prato Executivo do Dia", "price": "R$ 39,90", "image": { "alt": "Prato executivo", "unsplashQuery": "plated meal" }, "hoverImage": { "alt": "Detalhe do prato executivo", "unsplashQuery": "plated meal close up" } },
+        { "title": "Porção de Petiscos da Casa", "price": "R$ 49,90", "image": { "alt": "Porção de petiscos", "unsplashQuery": "appetizers platter" }, "hoverImage": { "alt": "Petiscos de perto", "unsplashQuery": "appetizer close up" } },
+        { "title": "Salada Mandacaru", "price": "R$ 32,90", "image": { "alt": "Salada fresca", "unsplashQuery": "fresh salad bowl" }, "hoverImage": { "alt": "Salada vista de cima", "unsplashQuery": "salad top view" } },
+        { "title": "Suco Natural de Caju", "price": "R$ 12,90", "image": { "alt": "Suco natural", "unsplashQuery": "fresh juice glass" }, "hoverImage": { "alt": "Sucos variados", "unsplashQuery": "juices variety" } },
+        { "title": "Bolo de Rolo", "price": "R$ 16,90", "image": { "alt": "Sobremesa", "unsplashQuery": "dessert cake slice" }, "hoverImage": { "alt": "Sobremesa de perto", "unsplashQuery": "dessert close up" } },
+        { "title": "Café Expresso", "price": "R$ 7,90", "image": { "alt": "Café expresso", "unsplashQuery": "espresso cup" }, "hoverImage": { "alt": "Café com doce", "unsplashQuery": "coffee and pastry" } }
       ]
     },
     {
