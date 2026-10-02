@@ -1,0 +1,268 @@
+---
+import '@fontsource/anton/latin-400.css';
+import '@fontsource/inter/latin-300.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-600.css';
+import '../styles/tokens.css';
+import BaseLayout from '../../../../shared/components/BaseLayout.astro';
+import Img from '../../../../shared/components/Img.astro';
+import StoreHeader from '../components/StoreHeader.astro';
+import { content, section, image, footerAnchors, type ImageRef } from '../lib/content';
+
+const header = section('header');
+const band = section('visual-band');
+const products = section('products');
+const footer = section('footer');
+
+type Product = { title: string; price: string; image: ImageRef; hoverImage: ImageRef };
+const year = new Date().getFullYear();
+---
+
+<BaseLayout title={content.seo.title} description={content.seo.description}>
+  <StoreHeader slot="header" logo={header.logoText} nav={header.nav} account={header.account} cart={header.cart} />
+
+  <h1 class="visually-hidden">{header.logoText}</h1>
+
+  <div class="band">
+    <Img src={image(band.image.unsplashQuery)} alt={band.image.alt} priority sizes="100vw" />
+  </div>
+
+  <section class="products" id="produtos" aria-label="Cardápio">
+    <ul class="grid">
+      {(products.items as Product[]).map((item, i) => (
+        <li class="product">
+          <div class="product__media">
+            <Img src={image(item.image.unsplashQuery)} alt={item.image.alt} priority={i === 0} sizes="178px" class="product__img" />
+            <Img src={image(item.hoverImage.unsplashQuery)} alt={item.hoverImage.alt} sizes="178px" class="product__img product__img--hover" />
+          </div>
+          <h2 class="product__title">{item.title}</h2>
+          <p class="product__price">{item.price}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <footer slot="footer" class="footer" id="rodape">
+    <nav aria-label="Rodapé">
+      <ul class="footer__links">
+        {footer.nav.map((label: string, i: number) => <li><a href={footerAnchors[i] ?? '#'}>{label}</a></li>)}
+      </ul>
+    </nav>
+
+    <form class="newsletter" action="#" method="post">
+      <label for="newsletter-email" class="newsletter__label">[TODO]</label>
+      <div class="newsletter__row">
+        <input id="newsletter-email" name="email" type="email" required placeholder={footer.newsletter.placeholder} autocomplete="email" />
+        <button type="submit">{footer.newsletter.submit}</button>
+      </div>
+    </form>
+
+    <div class="footer__trust">
+      <a href="#rodape" class="footer__reviews">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="m12 2 3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"></path></svg>
+        {footer.reviews}
+      </a>
+      <ul class="footer__payments" aria-label="Formas de pagamento">
+        {footer.payments.map((p: string) => <li>{p}</li>)}
+      </ul>
+    </div>
+
+    <p class="footer__legal">{header.logoText.toLowerCase()} {year}</p>
+  </footer>
+</BaseLayout>
+
+<style>
+  .band {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-band);
+    opacity: var(--opacity-band);
+    filter: grayscale(1);
+    pointer-events: none;
+  }
+
+  .band :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .products {
+    padding: calc(var(--header-height) + var(--space-xl)) var(--space-gutter) var(--space-2xl);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, var(--card-width)));
+    justify-content: center;
+    gap: var(--space-lg) var(--space-md);
+    padding: 0;
+    list-style: none;
+  }
+
+  .product {
+    display: grid;
+    gap: var(--space-xs);
+    text-align: center;
+  }
+
+  .product__media {
+    position: relative;
+    padding: var(--space-md) var(--space-sm) 0;
+  }
+
+  .product__media :global(.product__img) {
+    inline-size: 100%;
+    block-size: var(--card-image-height);
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    transition: opacity var(--duration-fast);
+  }
+
+  .product__media :global(.product__img--hover) {
+    position: absolute;
+    inset: var(--space-md) var(--space-sm) 0;
+    inline-size: calc(100% - 2 * var(--space-sm));
+    opacity: 0;
+  }
+
+  .product:hover :global(.product__img--hover) {
+    opacity: 1;
+  }
+
+  .product__title {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .product__price {
+    color: var(--color-grey-500);
+    font-size: var(--text-sm);
+  }
+
+  .footer {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-gutter) var(--space-xl);
+    border-block-start: var(--border-width) solid var(--color-border);
+    background: var(--color-bg);
+    font-size: var(--text-sm);
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  /* WCAG 2.2 minimum target size (24px). */
+  .footer__links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 24px;
+    min-inline-size: 24px;
+  }
+
+  .footer__links li + li::before {
+    content: '|';
+    margin-inline: var(--space-sm);
+  }
+
+  .footer a {
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    opacity: var(--opacity-hover);
+  }
+
+  .newsletter {
+    display: grid;
+    gap: var(--space-sm);
+    inline-size: min(100%, var(--newsletter-width));
+    padding: var(--space-sm);
+    border: var(--border-strong) solid var(--color-black);
+  }
+
+  .newsletter__label {
+    font-weight: 600;
+  }
+
+  .newsletter__row {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .newsletter input {
+    flex: 1;
+    min-inline-size: 0;
+    padding: var(--space-xs) var(--space-sm);
+    border: 0;
+    border-radius: var(--radius-input);
+    background: var(--color-surface);
+    font-size: var(--text-sm);
+  }
+
+  .newsletter button {
+    padding: var(--space-xs) var(--space-md);
+    border: 0;
+    border-radius: var(--radius-button);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .newsletter button:hover {
+    opacity: var(--opacity-hover);
+  }
+
+  .footer__trust {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .footer__reviews {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: 600;
+  }
+
+  .footer__payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer__payments li {
+    padding: 2px var(--space-sm);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--space-xs);
+    font-size: var(--text-xs);
+    font-weight: 600;
+  }
+
+  .footer__legal {
+    font-size: var(--text-xs);
+    font-weight: 600;
+  }
+
+  @media (min-width: 810px) {
+    .grid {
+      grid-template-columns: repeat(4, var(--card-width));
+      gap: var(--space-lg);
+    }
+  }
+</style>

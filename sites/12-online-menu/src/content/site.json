@@ -1,0 +1,39 @@
+{
+  "businessName": "Cardápio Mandacaru",
+  "reference": "R2",
+  "seo": {
+    "title": "Cardápio Mandacaru",
+    "description": "Cardápio online do Mandacaru. Peça online."
+  },
+  "sections": [
+    {
+      "id": "header",
+      "logoText": "MANDACARU",
+      "nav": ["CARDÁPIO", "FOTOS", "NOVIDADES"],
+      "account": "Minha conta",
+      "cart": { "label": "Pedido", "count": 0 }
+    },
+    {
+      "id": "visual-band",
+      "image": { "alt": "Pratos servidos sobre a mesa", "unsplashQuery": "food spread table top view" }
+    },
+    {
+      "id": "products",
+      "items": [
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Prato executivo", "unsplashQuery": "plated meal" }, "hoverImage": { "alt": "Detalhe do prato executivo", "unsplashQuery": "plated meal close up" } },
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Porção de petiscos", "unsplashQuery": "appetizers platter" }, "hoverImage": { "alt": "Petiscos de perto", "unsplashQuery": "appetizer close up" } },
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Salada fresca", "unsplashQuery": "fresh salad bowl" }, "hoverImage": { "alt": "Salada vista de cima", "unsplashQuery": "salad top view" } },
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Suco natural", "unsplashQuery": "fresh juice glass" }, "hoverImage": { "alt": "Sucos variados", "unsplashQuery": "juices variety" } },
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Sobremesa", "unsplashQuery": "dessert cake slice" }, "hoverImage": { "alt": "Sobremesa de perto", "unsplashQuery": "dessert close up" } },
+        { "title": "[TODO]", "price": "[TODO]", "image": { "alt": "Café expresso", "unsplashQuery": "espresso cup" }, "hoverImage": { "alt": "Café com doce", "unsplashQuery": "coffee and pastry" } }
+      ]
+    },
+    {
+      "id": "footer",
+      "nav": ["NOVIDADES", "SOBRE", "POLÍTICAS", "CONTATO", "Termos", "FAQ"],
+      "newsletter": { "placeholder": "Seu e-mail", "submit": "Inscrever" },
+      "payments": ["Pix", "Visa", "Mastercard", "Elo", "Amex"],
+      "reviews": "Avaliações"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+/* Design tokens. Reference R2, values from shared/tokens/12-online-menu.css; fonts per docs/design (approved Google stand-ins). */
+/* Spacing measured on the reference at 1920px. Breakpoints: 810px, 1200px. */
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-grey-900: #222;
+  --color-grey-500: #6d6d6d;
+  --color-grey-400: #a7a7a7;
+  --color-grey-300: #d2d2d2;
+  --color-grey-100: #e8e8e8;
+
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-grey-100);
+  --color-text: var(--color-black);
+  --color-border: var(--color-grey-300);
+  --color-primary: var(--color-grey-900);
+  --color-on-primary: var(--color-white);
+  --color-focus: var(--color-black);
+
+  --font-display: "Anton", Impact, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: var(--font-display);
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-nav: 26px;
+  --text-menu: 40px;
+  --leading-body: 1.4;
+  --leading-heading: 1;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 25px;
+  --space-xl: 48px;
+  --space-2xl: 96px;
+  --space-gutter: 16px;
+  --container-max: 900px;
+  --header-height: 100px;
+  --card-width: 206px;
+  --card-image-height: 191px;
+  --logo-size: 40px;
+  --newsletter-width: 420px;
+
+  --border-width: 1px;
+  --border-strong: 2px;
+  --radius-button: 0;
+  --radius-card: 10px;
+  --radius-input: 0;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+
+  --duration-fast: 150ms;
+  --opacity-hover: 0.6;
+  --opacity-band: 0.12;
+  --z-band: -1;
+  --z-header: 10;
+  --z-menu: 15;
+  --z-skip: 20;
+}
